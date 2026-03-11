@@ -66,13 +66,11 @@ GROUP BY HOUR(start_time)
 ORDER BY hour
 ```
 
----
-
 # 📊 핵심 분석
 
 ## 1️⃣ 시간대별 수요 분석
 
----Markdown
+</>Markdown
 
 ### 사용 SQL
 ```sql
