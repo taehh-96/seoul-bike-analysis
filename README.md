@@ -78,9 +78,8 @@ ORDER BY hour
 ## 1️⃣ 시간대별 수요 분석
 
 ### 사용 SQL
-```sql
 SELECT
-strftime('%H', 대여일시) AS hour,
+strftime('%H', 대여일시) AS hour,###
 COUNT(*) AS rental_count
 FROM "서울특별시_공공자전거_대여이력_정보"
 GROUP BY hour
@@ -120,7 +119,7 @@ ORDER BY rental_count;
 
 이는 따릉이가 출퇴근 이동 수단으로 활용되는 경향이 높다는 것을 의미한다.
 
-## 2️⃣ **요일별 이용 패턴**
+## 2️⃣ 요일별 이용 패턴
 
 ### 사용 SQL
 SELECT
