@@ -103,6 +103,8 @@ LIMIT 20;
 
 대여소별 이용량을 분석한 결과, 특정 대여소에 이용 수요가 집중되는 패턴이 나타났다.
 
+![대여소별 이용량](images/station_usage.png)
+
 - 특히 지하철역 인근 대여소, 대형 업무지구 주변 대여소에서 높은 이용량이 확인되었다.
 - **핵심 인사이트**: 이는 따릉이가 대중교통 연계 이동수단(Last-mile mobility)으로 활용되는 경향이 강하다는 것을 의미한다. 또한 유동인구가 많은 지역을 중심으로 대여 수요가 집중되는 특징을 확인할 수 있었다.
 
@@ -164,6 +166,7 @@ seoul-bike-analysis
 │
 ├ images
 │   ├ hourly_usage.png
+│   ├ station_usage.png
 │   └ weekday_usage.png
 │
 └ report
