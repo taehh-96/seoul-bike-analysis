@@ -84,6 +84,8 @@ ORDER BY strftime('%w', 대여일시);
 
 요일별 이용량을 분석한 결과, 따릉이 이용은 평일과 주말에 서로 다른 패턴을 보였다.
 
+![요일별 이용량](images/weekday_usage.png)
+
 - **평일(월-금)**에는 이용량이 상대적으로 높게 나타났으며 **주말(토-일)**에는 평일 대비 이용 패턴이 다소 완만하게 나타났다.
 - **핵심 인사이트**: 이는 따릉이가 출퇴근 및 일상 이동 수단으로 활용되는 경향이 높다는 것을 의미한다. 또한 주말 이용은 여가 및 레저 활동 중심의 이용 패턴이 반영된 것으로 해석할 수 있다.
 
@@ -161,7 +163,8 @@ seoul-bike-analysis
 │   └ analysis_queries.sql
 │
 ├ images
-│   └ hourly_usage.png
+│   ├ hourly_usage.png
+│   └ weekday_usage.png
 │
 └ report
 ```
