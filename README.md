@@ -119,6 +119,8 @@ WHERE "이용시간" IS NOT NULL;
 
 DBeaver에서 실행한 결과 평균 이용시간은 19.92분으로 확인되었다. 이는 한 번의 대여가 약 20분 내외로 종료되는 경우가 많다는 의미이며, 자전거 회전율과 운영 효율을 평가하는 핵심 지표로 활용할 수 있다.
 
+![이용시간 분포](images/avg_duration.png)
+
 - **핵심 인사이트**: 시간대별 피크(08시, 17-18시), 평일 중심 이용, 지하철·업무지구 대여소 수요 집중이라는 1-3번 결과와 함께 보면 20분 내외의 단거리·환승형 이동이 주요 사용 시나리오임을 뒷받침한다. 따라서 평일에는 회전율과 재배치 효율을, 주말에는 여가성 이동을 고려한 공급 전략을 구분하는 것이 합리적이다.
 
 ## 🔍 주요 인사이트
@@ -162,6 +164,7 @@ seoul-bike-analysis
 │   └ analysis_queries.sql
 │
 ├ images
+│   ├ avg_duration.png
 │   ├ hourly_usage.png
 │   ├ station_usage.png
 │   └ weekday_usage.png
