@@ -131,6 +131,9 @@ SELECT
   "대여 대여소명" AS station_name,
   COUNT(*) AS rental_count
 FROM "서울특별시_공공자전거_대여이력_정보"
+WHERE "대여 대여소명" IS NOT NULL
+  AND "대여 대여소명" != ''
+  AND "대여 대여소명" != '\\N'
 GROUP BY "대여 대여소명"
 ORDER BY rental_count DESC
 LIMIT 10;
@@ -141,11 +144,17 @@ LIMIT 10;
 WITH rentals AS (
   SELECT "대여 대여소명" AS station_name, COUNT(*) AS rental_count
   FROM "서울특별시_공공자전거_대여이력_정보"
+  WHERE "대여 대여소명" IS NOT NULL
+    AND "대여 대여소명" != ''
+    AND "대여 대여소명" != '\\N'
   GROUP BY "대여 대여소명"
 ),
 returns AS (
   SELECT "반납대여소명" AS station_name, COUNT(*) AS return_count
   FROM "서울특별시_공공자전거_대여이력_정보"
+  WHERE "반납대여소명" IS NOT NULL
+    AND "반납대여소명" != ''
+    AND "반납대여소명" != '\\N'
   GROUP BY "반납대여소명"
 ),
 stations AS (
@@ -171,7 +180,11 @@ CSV 원본 데이터를 기준으로 인기/부족 대여소를 비교한 결과
 - **부족 대여소 상위(순유출)**: 신일해피트리아파트 앞(-2,397), 상왕십리역 1번출구(-2,378), 삼부르네상스파크빌(-2,234), 아차산역4번출구(-2,121), 서울시립대 정문 앞 B(-2,045)
 - **공급 과잉 대여소 상위(순유입)**: 응암역2번출구 국민은행 앞(+3,607), 홍대입구역 2번출구 앞(+3,310), 창동역2번출구 하나은행365 앞(+2,222), 푸조비즈타워 앞(+2,099), 영등포역 1번출구(+2,029)
 
-- **핵심 인사이트**: 순유출이 큰 대여소는 자전거가 빠르게 소진되는 구간으로 선제 배치가 필요하며, 순유입이 큰 대여소는 회수·분산 전략의 우선 대상이 된다. 이를 시간대별 피크와 결합하면 재배치 우선순위를 구체화할 수 있다.
+![순유출/순유입 상위 10개](images/station_net_flow.png)
+
+![시간대별 순유출 히트맵](images/station_net_flow_by_hour.png)
+
+- **핵심 인사이트**: 순유출이 큰 대여소는 자전거가 빠르게 소진되는 구간으로 선제 배치가 필요하며, 순유입이 큰 대여소는 회수·분산 전략의 우선 대상이 된다. 시간대별 히트맵 기준 순유출 집중 구간이 07-09시, 15-16시에 나타나 재배치 타이밍을 명확히 설정할 수 있다.
 
 ## 🔍 주요 인사이트
 1. 출퇴근 시간대 수요 집중
@@ -218,6 +231,8 @@ seoul-bike-analysis
 ├ images
 │   ├ avg_duration.png
 │   ├ hourly_usage.png
+│   ├ station_net_flow.png
+│   ├ station_net_flow_by_hour.png
 │   ├ station_usage.png
 │   └ weekday_usage.png
 │
